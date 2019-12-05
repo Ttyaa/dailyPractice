@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <title>侦听器</title>
+</head>
+
+<body>
+    <div id="watch-example">
+        <p>
+            ask a yes/no qusetion:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script>
+        var watchExampleVM = new Vue({
+            el: '#watch-example',
+            data: {
+                question:'',
+                answer:'I cannot give you an answer until you ask a question!'
+            },
+            watch: {
+                // 如果`question` 发生改变，这个函数就会执行
+                question:function(newQuestion,oldQuestion) {
+                    this.answer = 'waiting for you to stop styping...'
+                    this.debouncedGetAnswer()
+                }
+            },
+            created:function(){
+                // `_.debounce`是一个通过Lodash限制操作频率的函数。
+                this.debouncedGetAnswer = _.debounce(this.getAnswer,500)
+            },
+            methods: {
+                getAnswer:function(){
+                    if(this.question.indexOf('?') === -1 ){
+                        this.answer = 'questions usually contain a quest'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <title>注册组件</title>
+</head>
+<body>
+    <div id="app-7">
+        <!-- 实例 -->
+        <ol>
+            <todo-item
+                v-for="item in grocerylist"
+                :todo="item"
+                :key="item.id"
+            ></todo-item>
+        </ol>  
+    </div>
+    <script>
+        // 这就定义了一个名为todo-item的新组件
+        // 方法1:
+        // Vue.component('todo-item', {
+        //     template: '<li>这是个待办项</li>'
+        // })
+        // 方法2: 能从父作用域将数据传到子组件 prop
+        Vue.component('todo-item', {
+            props:['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+        var app7 = new Vue({
+            el: '#app-7',
+            data: {
+                grocerylist: [
+                    { id:0, text: '蔬菜' },
+                    { id:1, text: '奶酪' },
+                    { id:2, text: 'anyway' },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <title>计算属性vs侦听属性</title>
+</head>
+<body>
+    <div id="demo">
+        {{ firstName }} <br/>
+        {{ lastName }}  <br/>
+        {{ fullName }}  <br/> 
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                firstName: 'foo',
+                lastName: 'bar',
+                fullName: 'foo bar'
+            },
+            // 命令式、重复，不可取
+            watch: {
+                firstName:function(val){
+                    this.fullName = val + ' ' + this.lastName
+                },
+                lastName:function(val){
+                    this.fullName = this.firstName + ' ' + val
+                }
+            },
+            // 利用计算属性的响应式，舒适。
+            computed: {
+                // fullName:function(){
+                //     return this.firstName + ' ' + this.lastName
+                // }
+                // 计算属性的setter
+                fullName:{
+                    get:function(){
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    set:function(newValue){
+                        var names = newValue.split(' ')
+                        this.firstName = names[0]
+                        this.lastName = names[names.length - 1]
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <title>属性加入到响应式系统</title>
+</head>
+<body>
+    <div id="app-8">
+        
+    </div>
+    <div id="app-9">
+        <p>{{ foo }}</p>
+        <button @click="foo = 'baz'">change it</button>
+    </div>
+    <script>
+        // 数据对象
+        var data = { a:1 }
+        //对象加入到实例
+        var app8 = new Vue({
+            el: '#app-8',
+            data: data
+        })
+        //data对象中的属性 是实例上的属性了 
+        console.log('pp8.a == data.a:',app8.a == data.a);
+
+        //设置属性也会影响原始值
+        app8.a = 2;
+        console.log('data.a:',data.a);
+
+        // 修改data里的值也会改变实例里的属性值
+        data.a = 4;
+        console.log('app8.a:',app8.a);
+
+        // 注意：只有当实例被创建时就已经存在于data中属性才是响应式的。
+
+        //  使用Object.freeze(), 可以阻止修改现有的属性，响应式系统将无法再追踪变化。
+        var obj = {
+            foo: 'bar'
+        }
+
+        Object.freeze(obj);
+        //  有报错： TypeError: Cannot assign to read only property 'foo' of object '#<Object>'
+
+        var app9 = new Vue({
+            el: '#app-9',
+            data:obj
+        })
+    </script>
+</body>
+</html>
