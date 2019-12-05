@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新元素</title>
+    <style>
+        body{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3> 1、`section` 标签定义了文档的某个区域。比如章节、头部、底部或者文档的其他区域。（块级）</h3>   
+    <section>
+        <h1>wwf</h1>
+        <p>the world wide...</p>
+    </section>
+    <!--  -->
+    <h3>2、`video` 标签定义视频，比如电影片段或其他视频流。（行内）</h3>   
+    <video width="320" controls src="IMG_5215.MP4">
+    </video>
+    <video width="320" controls>
+        <source srcset="IMG_5215.MP4" type="audio/mp4">
+    </video>
+    <h1>------------------------------------------------------</h1>
+    <h3>3、`progress` 标签定义运行中的任务进度（进程）。（行内）</h3>
+    <p>下载进度：</p>
+    <progress value="33" max="100"></progress>
+    <h1>------------------------------------------------------</h1>
+    <h3>4、`nav` 标签定义导航链接的部（块级）</h3>
+    <nav>
+        <a href="#">aaa</a>|
+        <a href="#">bbb</a>|
+        <a href="#">ccc</a>
+    </nav>
+    <h1>------------------------------------------------------</h1>
+    <h3>5、`meter` 标签定义度量衡。仅用于已知最大和最小值的度量。不能作为进度条使用。（行内）</h3>
+    <!-- 标签里面的内容不展示 -->
+    <meter value="2" min="0" max="10">2/10</meter>
+    <meter value="0.6">60%</meter>
+    <h1>------------------------------------------------------</h1>
+    <h3>6、`time` 标签定义公历的时间（24 小时制）或日期，时间和时区偏移是可选的。(行内)</h3>
+    该元素能够以机器可读的方式对日期和时间进行编码，这样，举例说，用户代理能够把生日提醒或排定的事件添加到用户日程表中，搜索引擎也能够生成更智能的搜索结果。
+    <p><time>8:30</time>开始上班</p>
+    <p>小刘<time datetime="2019-12-03">入职</time>了</p>
+    <h1>------------------------------------------------------</h1>
+    <h3>7、`details` 标签规定了用户可见的或者隐藏的需求的补充细节。（块级）</h3>
+    <h4>用来供用户开启关闭的交互式控件。任何形式的内容都能被放在 `details` 标签里边。</h4>
+    <h4>元素的内容对用户是不可见的，除非设置了 open 属性</h4>
+    <h4>与 `summary` 标签配合使用可以为 details 定义标题。标题是可见的，用户点击标题时，会显示出 details</h4>
+    <!-- open 设置与不设置有什么区别？？这就我就纳了闷了。。 -->
+    <details>
+        <p>这用户是看不见的?????????</p>
+    </details>
+    <details open >
+        <p>这里设置了open属性所以用户能看见了</p>
+    </details>
+    <details>
+        <summary>Copyright 1999-2011.</summary>
+        <p> - by Refsnes Data. All Rights Reserved.</p>
+        <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+    </details>
+    <h1>------------------------------------------------------</h1>
+    <h3>8、`datalist` 标签规定了 `input`元素可能的选项列表。</h3>
+    <h4>被用来在为 `input`元素提供"自动完成"的特性。用户能看到一个下拉列表，里边的选项是预先定义好的，将作为用户的输入数据。</h4>
+    <h4>请使用 `input` 元素的 list 属性来绑定 `datalist` 元素。</h4>
+    <form action="" method="get">
+        <input list="fruits" name="fruit">
+        <datalist id="fruits">
+            <option value="apple"></option>
+            <option value="banana"></option>
+            <option value="pear"></option>
+        </datalist>
+        <input type="submit">
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>9、`embed` 标签定义了一个容器，用来嵌入外部应用或者互动程序（插件）。（块级）</h3>
+    <embed src="helloworld.swf" tppabs="http://www.runoob.com//try/demo_source/helloworld.swf">
+    <h1>------------------------------------------------------</h1>
+    <h3>10、`figure` 标签规定独立的流内容（图像、图表、照片、代码等等）。（行内or块级看内部元素）</h3>
+    <h4>元素的内容应该与主内容相关，同时元素的位置相对于主内容是独立的。如果被删除，则不应对文档流产生影响。</h4>
+    <h4>`figcaption` 标签 定义了标题。应该被置于 `figure` 元素的第一个或最后一个子元素的位置。</h4>
+    <figure>
+        <figcaption>我是标题</figcaption>
+        <img src="xxx" alt="我没有照片">
+    </figure>
+    <h1>------------------------------------------------------</h1>
+    <h3>11、`mark` 标签定义带有记号的文本</h3>
+    <p>don`t forget to buy <mark>milk</mark> today.</p>
+    <h1>------------------------------------------------------</h1>
+    <h3>12、`output` 标签作为计算结果输出显示(比如执行脚本的输出)。</h3>
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        <!-- 0<input type="range" id="a" value="50">100 -->
+        <input type="number" id="a">
+        +<input type="number" id="b" value="50">
+        =<output name="x" for="a b"></output>
+    </form>
+</body>
+</html>
