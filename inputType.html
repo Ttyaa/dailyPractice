@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input 新类型</title>
+    <style>
+        body{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3>color 类型 用于选取颜色</h3>
+    选择喜欢的颜色：<input type="color" name="favcolor" id="c">
+    <h1>------------------------------------------------------</h1>
+    <h3>date 类型 从日期选择器中选择一个日期</h3>
+    生日：<input type="date" name="bday" id="b">
+    <h1>------------------------------------------------------</h1>
+    <h3>datetime 类型 选择一个日期（utc时间）</h3>
+    <!-- 我滴浏览器不支持鸭 -->
+    日期和时间：<input type="datetime" name="bdaytime" id="bt">
+    <h1>------------------------------------------------------</h1>
+    <h3>datetime-local 类型 同上（无时区）</h3>
+    日期和时间：<input type="datetime-local" name="bdaytime" id="btl">
+    <h1>------------------------------------------------------</h1>
+    <h3>email 类型 验证e-mail域值是否合法</h3>
+    <form action="">
+        邮箱：<input type="email" name="email" id="e">
+        <input type="submit" >
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>month 类型 选择一个月份</h3>
+    选择一个月份：<input type="month" name="month" id="m">
+    <h1>------------------------------------------------------</h1>
+    <h3>number 类型 输入包含的数值域</h3>
+    <form action="">
+        数量（1-5之间）：<input type="number" name="number" id="n" min="1" max="5">
+        <input type="submit">
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>range 类型 用于包含一定范围内的数字值的输入域</h3>
+    <form action="">
+        points：<input type="range" name="range" id="r" min="1" max="15" step="1" value="1">
+        <input type="submit">
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>search 类型 用于搜索域</h3>
+    <form action="">
+        points：<input type="search"" name="search" >
+        <input type="submit">
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>tel 类型 定义电话号码字段</h3>
+    <!-- 手机号码没有校验呀，我就纳了闷了。是我滴浏览器不支持 -->
+    <form action="">
+        手机号：<input type="tel"" name="tel" >
+        <input type="submit">
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>time 类型 选择一个时间</h3>
+    <input type="time" name="time">
+    <h1>------------------------------------------------------</h1>
+    <h3>url 类型 用于应该包含的url地址的输入域</h3>
+    <form action="" method="get">
+        添加主页：<input type="url" name="homepage">
+        <input type="submit" >
+    </form>
+    <h1>------------------------------------------------------</h1>
+    <h3>week 类型 选择周和年</h3>
+    选择周：<input type="week">
+    <div style="width: 100px;height: 100px;border-radius: 50px;background-color: aquamarine;border: 1px solid #000000;outline: 3px solid rebeccapurple;">
+
+    </div>
+</body>
+</html>
